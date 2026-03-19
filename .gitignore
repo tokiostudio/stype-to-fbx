@@ -2,3 +2,5 @@ node_modules/
 test-output/
 .DS_Store
 *.log
+out/
+.vite/
