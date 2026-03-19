@@ -4,3 +4,4 @@ test-output/
 *.log
 out/
 .vite/
+build.sh
