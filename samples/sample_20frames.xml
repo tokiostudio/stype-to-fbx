@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Stype_HF>
+  <Header_Stype_HF>
+    <Date>2026-02-17T11:17:39.6347123+01:00</Date>
+    <Port>6301</Port>
+    <Protocol>Stype HF</Protocol>
+    <Frame_rate>100 frames/s</Frame_rate>
+  </Header_Stype_HF>
+  <Data_sample>
+    <Index>1</Index>
+    <Commands>2</Commands>
+    <Package_No>97</Package_No>
+    <Time>PT0S</Time>
+    <Frame>18</Frame>
+    <Sec>46</Sec>
+    <Min>17</Min>
+    <Hours>12</Hours>
+    <X_Value>5,2215 m</X_Value>
+    <Y_Value>1,2065 m</Y_Value>
+    <Z_Value>-2,9376 m</Z_Value>
+    <Pan>-36,247 °</Pan>
+    <Tilt>0,120 °</Tilt>
+    <Roll>0,460 °</Roll>
+    <FovX>79,710 °</FovX>
+    <Aspect_Ratio>1,7818 </Aspect_Ratio>
+    <Focus>0,5400 </Focus>
+    <Zoom>0,0000 </Zoom>
+    <k1>0,000285000 mm^-2</k1>
+    <k2>0,000000050 mm^-4</k2>
+    <Center-X>0,0770 mm</Center-X>
+    <Center-Y>-0,0769 mm</Center-Y>
+    <PA_width>34,1990 mm</PA_width>
+  </Data_sample>
+  <Data_sample>
+    <Index>2</Index>
+    <Commands>2</Commands>
+    <Package_No>98</Package_No>
+    <Time>PT0.0099655S</Time>
+    <Frame>18</Frame>
+    <Sec>46</Sec>
+    <Min>17</Min>
+    <Hours>12</Hours>
+    <X_Value>5,2215 m</X_Value>
+    <Y_Value>1,2065 m</Y_Value>
+    <Z_Value>-2,9376 m</Z_Value>
+    <Pan>-36,247 °</Pan>
+    <Tilt>0,120 °</Tilt>
+    <Roll>0,459 °</Roll>
+    <FovX>79,710 °</FovX>
+    <Aspect_Ratio>1,7818 </Aspect_Ratio>
+    <Focus>0,5400 </Focus>
+    <Zoom>0,0000 </Zoom>
+    <k1>0,000285000 mm^-2</k1>
+    <k2>0,000000050 mm^-4</k2>
+    <Center-X>0,0770 mm</Center-X>
+    <Center-Y>-0,0769 mm</Center-Y>
+    <PA_width>34,1990 mm</PA_width>
+  </Data_sample>
+  <Data_sample>
+    <Index>3</Index>
+    <Commands>2</Commands>
+    <Package_No>99</Package_No>
+    <Time>PT0.0199549S</Time>
+    <Frame>18</Frame>
+    <Sec>46</Sec>
+    <Min>17</Min>
+    <Hours>12</Hours>
+    <X_Value>5,2215 m</X_Value>
+    <Y_Value>1,2065 m</Y_Value>
+    <Z_Value>-2,9375 m</Z_Value>
+    <Pan>-36,246 °</Pan>
+    <Tilt>0,121 °</Tilt>
+    <Roll>0,460 °</Roll>
+    <FovX>79,710 °</FovX>
+    <Aspect_Ratio>1,7818 </Aspect_Ratio>
+    <Focus>0,5400 </Focus>
+    <Zoom>0,0000 </Zoom>
+    <k1>0,000285000 mm^-2</k1>
+    <k2>0,000000050 mm^-4</k2>
+    <Center-X>0,0770 mm</Center-X>
+    <Center-Y>-0,0769 mm</Center-Y>
+    <PA_width>34,1990 mm</PA_width>
+  </Data_sample>
+  <Data_sample>
+    <Index>4</Index>
+    <Commands>2</Commands>
+    <Package_No>100</Package_No>
+    <Time>PT0.0300437S</Time>
+    <Frame>19</Frame>
+    <Sec>46</Sec>
+    <Min>17</Min>
+    <Hours>12</Hours>
+    <X_Value>5,2215 m</X_Value>
+    <Y_Value>1,2065 m</Y_Value>
+    <Z_Value>-2,9375 m</Z_Value>
+    <Pan>-36,246 °</Pan>
+    <Tilt>0,121 °</Tilt>
+    <Roll>0,459 °</Roll>
+    <FovX>79,710 °</FovX>
+    <Aspect_Ratio>1,7818 </Aspect_Ratio>
+    <Focus>0,5400 </Focus>
+    <Zoom>0,0000 </Zoom>
+    <k1>0,000285000 mm^-2</k1>
+    <k2>0,000000050 mm^-4</k2>
+    <Center-X>0,0770 mm</Center-X>
+    <Center-Y>-0,0769 mm</Center-Y>
+    <PA_width>34,1990 mm</PA_width>
+  </Data_sample>
+  <Data_sample>
+    <Index>5</Index>
+    <Commands>2</Commands>
+    <Package_No>101</Package_No>
+    <Time>PT0.0400888S</Time>
+    <Frame>19</Frame>
+    <Sec>46</Sec>
+    <Min>17</Min>
+    <Hours>12</Hours>
+    <X_Value>5,2215 m</X_Value>
+    <Y_Value>1,2065 m</Y_Value>
+    <Z_Value>-2,9374 m</Z_Value>
+    <Pan>-36,246 °</Pan>
+    <Tilt>0,122 °</Tilt>
+    <Roll>0,459 °</Roll>
+    <FovX>79,710 °</FovX>
+    <Aspect_Ratio>1,7818 </Aspect_Ratio>
+    <Focus>0,5400 </Focus>
+    <Zoom>0,0000 </Zoom>
+    <k1>0,000285000 mm^-2</k1>
+    <k2>0,000000050 mm^-4</k2>
+    <Center-X>0,0770 mm</Center-X>
+    <Center-Y>-0,0769 mm</Center-Y>
+    <PA_width>34,1990 mm</PA_width>
+  </Data_sample>
+  <Data_sample>
+    <Index>6</Index>
+    <Commands>2</Commands>
+    <Package_No>102</Package_No>
+    <Time>PT0.0501068S</Time>
+    <Frame>19</Frame>
+    <Sec>46</Sec>
+    <Min>17</Min>
+    <Hours>12</Hours>
+    <X_Value>5,2215 m</X_Value>
+    <Y_Value>1,2064 m</Y_Value>
+    <Z_Value>-2,9374 m</Z_Value>
+    <Pan>-36,246 °</Pan>
+    <Tilt>0,121 °</Tilt>
+    <Roll>0,457 °</Roll>
+    <FovX>79,710 °</FovX>
+    <Aspect_Ratio>1,7818 </Aspect_Ratio>
+    <Focus>0,5400 </Focus>
+    <Zoom>0,0000 </Zoom>
+    <k1>0,000285000 mm^-2</k1>
+    <k2>0,000000050 mm^-4</k2>
+    <Center-X>0,0770 mm</Center-X>
+    <Center-Y>-0,0769 mm</Center-Y>
+    <PA_width>34,1990 mm</PA_width>
+  </Data_sample>
+  <Data_sample>
+    <Index>7</Index>
+    <Commands>2</Commands>
+    <Package_No>103</Package_No>
+    <Time>PT0.0599837S</Time>
+    <Frame>19</Frame>
+    <Sec>46</Sec>
+    <Min>17</Min>
+    <Hours>12</Hours>
+    <X_Value>5,2215 m</X_Value>
+    <Y_Value>1,2064 m</Y_Value>
+    <Z_Value>-2,9373 m</Z_Value>
+    <Pan>-36,246 °</Pan>
+    <Tilt>0,121 °</Tilt>
+    <Roll>0,457 °</Roll>
+    <FovX>79,710 °</FovX>
+    <Aspect_Ratio>1,7818 </Aspect_Ratio>
+    <Focus>0,5400 </Focus>
+    <Zoom>0,0000 </Zoom>
+    <k1>0,000285000 mm^-2</k1>
+    <k2>0,000000050 mm^-4</k2>
+    <Center-X>0,0770 mm</Center-X>
+    <Center-Y>-0,0769 mm</Center-Y>
+    <PA_width>34,1990 mm</PA_width>
+  </Data_sample>
+  <Data_sample>
+    <Index>8</Index>
+    <Commands>2</Commands>
+    <Package_No>104</Package_No>
+    <Time>PT0.0699631S</Time>
+    <Frame>20</Frame>
+    <Sec>46</Sec>
+    <Min>17</Min>
+    <Hours>12</Hours>
+    <X_Value>5,2215 m</X_Value>
+    <Y_Value>1,2064 m</Y_Value>
+    <Z_Value>-2,9373 m</Z_Value>
+    <Pan>-36,245 °</Pan>
+    <Tilt>0,121 °</Tilt>
+    <Roll>0,456 °</Roll>
+    <FovX>79,710 °</FovX>
+    <Aspect_Ratio>1,7818 </Aspect_Ratio>
+    <Focus>0,5400 </Focus>
+    <Zoom>0,0000 </Zoom>
+    <k1>0,000285000 mm^-2</k1>
+    <k2>0,000000050 mm^-4</k2>
+    <Center-X>0,0770 mm</Center-X>
+    <Center-Y>-0,0769 mm</Center-Y>
+    <PA_width>34,1990 mm</PA_width>
+  </Data_sample>
+  <Data_sample>
+    <Index>9</Index>
+    <Commands>2</Commands>
+    <Package_No>105</Package_No>
+    <Time>PT0.0800857S</Time>
+    <Frame>20</Frame>
+    <Sec>46</Sec>
+    <Min>17</Min>
+    <Hours>12</Hours>
+    <X_Value>5,2215 m</X_Value>
+    <Y_Value>1,2064 m</Y_Value>
+    <Z_Value>-2,9373 m</Z_Value>
+    <Pan>-36,245 °</Pan>
+    <Tilt>0,120 °</Tilt>
+    <Roll>0,456 °</Roll>
+    <FovX>79,710 °</FovX>
+    <Aspect_Ratio>1,7818 </Aspect_Ratio>
+    <Focus>0,5400 </Focus>
+    <Zoom>0,0000 </Zoom>
+    <k1>0,000285000 mm^-2</k1>
+    <k2>0,000000050 mm^-4</k2>
+    <Center-X>0,0770 mm</Center-X>
+    <Center-Y>-0,0769 mm</Center-Y>
+    <PA_width>34,1990 mm</PA_width>
+  </Data_sample>
+  <Data_sample>
+    <Index>10</Index>
+    <Commands>2</Commands>
+    <Package_No>106</Package_No>
+    <Time>PT0.0899288S</Time>
+    <Frame>20</Frame>
+    <Sec>46</Sec>
+    <Min>17</Min>
+    <Hours>12</Hours>
+    <X_Value>5,2214 m</X_Value>
+    <Y_Value>1,2064 m</Y_Value>
+    <Z_Value>-2,9372 m</Z_Value>
+    <Pan>-36,244 °</Pan>
+    <Tilt>0,119 °</Tilt>
+    <Roll>0,456 °</Roll>
+    <FovX>79,710 °</FovX>
+    <Aspect_Ratio>1,7818 </Aspect_Ratio>
+    <Focus>0,5400 </Focus>
+    <Zoom>0,0000 </Zoom>
+    <k1>0,000285000 mm^-2</k1>
+    <k2>0,000000050 mm^-4</k2>
+    <Center-X>0,0770 mm</Center-X>
+    <Center-Y>-0,0769 mm</Center-Y>
+    <PA_width>34,1990 mm</PA_width>
+  </Data_sample>
+  <Data_sample>
+    <Index>11</Index>
+    <Commands>2</Commands>
+    <Package_No>107</Package_No>
+    <Time>PT0.0999298S</Time>
+    <Frame>20</Frame>
+    <Sec>46</Sec>
+    <Min>17</Min>
+    <Hours>12</Hours>
+    <X_Value>5,2214 m</X_Value>
+    <Y_Value>1,2065 m</Y_Value>
+    <Z_Value>-2,9372 m</Z_Value>
+    <Pan>-36,244 °</Pan>
+    <Tilt>0,119 °</Tilt>
+    <Roll>0,456 °</Roll>
+    <FovX>79,710 °</FovX>
+    <Aspect_Ratio>1,7818 </Aspect_Ratio>
+    <Focus>0,5400 </Focus>
+    <Zoom>0,0000 </Zoom>
+    <k1>0,000285000 mm^-2</k1>
+    <k2>0,000000050 mm^-4</k2>
+    <Center-X>0,0770 mm</Center-X>
+    <Center-Y>-0,0769 mm</Center-Y>
+    <PA_width>34,1990 mm</PA_width>
+  </Data_sample>
+  <Data_sample>
+    <Index>12</Index>
+    <Commands>2</Commands>
+    <Package_No>108</Package_No>
+    <Time>PT0.1099573S</Time>
+    <Frame>21</Frame>
+    <Sec>46</Sec>
+    <Min>17</Min>
+    <Hours>12</Hours>
+    <X_Value>5,2214 m</X_Value>
+    <Y_Value>1,2065 m</Y_Value>
+    <Z_Value>-2,9371 m</Z_Value>
+    <Pan>-36,244 °</Pan>
+    <Tilt>0,118 °</Tilt>
+    <Roll>0,456 °</Roll>
+    <FovX>79,710 °</FovX>
+    <Aspect_Ratio>1,7818 </Aspect_Ratio>
+    <Focus>0,5400 </Focus>
+    <Zoom>0,0000 </Zoom>
+    <k1>0,000285000 mm^-2</k1>
+    <k2>0,000000050 mm^-4</k2>
+    <Center-X>0,0770 mm</Center-X>
+    <Center-Y>-0,0769 mm</Center-Y>
+    <PA_width>34,1990 mm</PA_width>
+  </Data_sample>
+  <Data_sample>
+    <Index>13</Index>
+    <Commands>2</Commands>
+    <Package_No>109</Package_No>
+    <Time>PT0.1199852S</Time>
+    <Frame>21</Frame>
+    <Sec>46</Sec>
+    <Min>17</Min>
+    <Hours>12</Hours>
+    <X_Value>5,2214 m</X_Value>
+    <Y_Value>1,2065 m</Y_Value>
+    <Z_Value>-2,9371 m</Z_Value>
+    <Pan>-36,244 °</Pan>
+    <Tilt>0,118 °</Tilt>
+    <Roll>0,457 °</Roll>
+    <FovX>79,710 °</FovX>
+    <Aspect_Ratio>1,7818 </Aspect_Ratio>
+    <Focus>0,5400 </Focus>
+    <Zoom>0,0000 </Zoom>
+    <k1>0,000285000 mm^-2</k1>
+    <k2>0,000000050 mm^-4</k2>
+    <Center-X>0,0770 mm</Center-X>
+    <Center-Y>-0,0769 mm</Center-Y>
+    <PA_width>34,1990 mm</PA_width>
+  </Data_sample>
+  <Data_sample>
+    <Index>14</Index>
+    <Commands>2</Commands>
+    <Package_No>110</Package_No>
+    <Time>PT0.1299856S</Time>
+    <Frame>21</Frame>
+    <Sec>46</Sec>
+    <Min>17</Min>
+    <Hours>12</Hours>
+    <X_Value>5,2214 m</X_Value>
+    <Y_Value>1,2065 m</Y_Value>
+    <Z_Value>-2,9370 m</Z_Value>
+    <Pan>-36,244 °</Pan>
+    <Tilt>0,117 °</Tilt>
+    <Roll>0,457 °</Roll>
+    <FovX>79,710 °</FovX>
+    <Aspect_Ratio>1,7818 </Aspect_Ratio>
+    <Focus>0,5400 </Focus>
+    <Zoom>0,0000 </Zoom>
+    <k1>0,000285000 mm^-2</k1>
+    <k2>0,000000050 mm^-4</k2>
+    <Center-X>0,0770 mm</Center-X>
+    <Center-Y>-0,0769 mm</Center-Y>
+    <PA_width>34,1990 mm</PA_width>
+  </Data_sample>
+  <Data_sample>
+    <Index>15</Index>
+    <Commands>2</Commands>
+    <Package_No>111</Package_No>
+    <Time>PT0.1399626S</Time>
+    <Frame>21</Frame>
+    <Sec>46</Sec>
+    <Min>17</Min>
+    <Hours>12</Hours>
+    <X_Value>5,2213 m</X_Value>
+    <Y_Value>1,2065 m</Y_Value>
+    <Z_Value>-2,9370 m</Z_Value>
+    <Pan>-36,243 °</Pan>
+    <Tilt>0,117 °</Tilt>
+    <Roll>0,458 °</Roll>
+    <FovX>79,710 °</FovX>
+    <Aspect_Ratio>1,7818 </Aspect_Ratio>
+    <Focus>0,5400 </Focus>
+    <Zoom>0,0000 </Zoom>
+    <k1>0,000285000 mm^-2</k1>
+    <k2>0,000000050 mm^-4</k2>
+    <Center-X>0,0770 mm</Center-X>
+    <Center-Y>-0,0769 mm</Center-Y>
+    <PA_width>34,1990 mm</PA_width>
+  </Data_sample>
+  <Data_sample>
+    <Index>16</Index>
+    <Commands>2</Commands>
+    <Package_No>112</Package_No>
+    <Time>PT0.1499772S</Time>
+    <Frame>22</Frame>
+    <Sec>46</Sec>
+    <Min>17</Min>
+    <Hours>12</Hours>
+    <X_Value>5,2213 m</X_Value>
+    <Y_Value>1,2065 m</Y_Value>
+    <Z_Value>-2,9370 m</Z_Value>
+    <Pan>-36,242 °</Pan>
+    <Tilt>0,116 °</Tilt>
+    <Roll>0,457 °</Roll>
+    <FovX>79,710 °</FovX>
+    <Aspect_Ratio>1,7818 </Aspect_Ratio>
+    <Focus>0,5400 </Focus>
+    <Zoom>0,0000 </Zoom>
+    <k1>0,000285000 mm^-2</k1>
+    <k2>0,000000050 mm^-4</k2>
+    <Center-X>0,0770 mm</Center-X>
+    <Center-Y>-0,0769 mm</Center-Y>
+    <PA_width>34,1990 mm</PA_width>
+  </Data_sample>
+  <Data_sample>
+    <Index>17</Index>
+    <Commands>2</Commands>
+    <Package_No>113</Package_No>
+    <Time>PT0.1599192S</Time>
+    <Frame>22</Frame>
+    <Sec>46</Sec>
+    <Min>17</Min>
+    <Hours>12</Hours>
+    <X_Value>5,2213 m</X_Value>
+    <Y_Value>1,2064 m</Y_Value>
+    <Z_Value>-2,9369 m</Z_Value>
+    <Pan>-36,241 °</Pan>
+    <Tilt>0,117 °</Tilt>
+    <Roll>0,457 °</Roll>
+    <FovX>79,710 °</FovX>
+    <Aspect_Ratio>1,7818 </Aspect_Ratio>
+    <Focus>0,5400 </Focus>
+    <Zoom>0,0000 </Zoom>
+    <k1>0,000285000 mm^-2</k1>
+    <k2>0,000000050 mm^-4</k2>
+    <Center-X>0,0770 mm</Center-X>
+    <Center-Y>-0,0769 mm</Center-Y>
+    <PA_width>34,1990 mm</PA_width>
+  </Data_sample>
+  <Data_sample>
+    <Index>18</Index>
+    <Commands>2</Commands>
+    <Package_No>114</Package_No>
+    <Time>PT0.1701516S</Time>
+    <Frame>22</Frame>
+    <Sec>46</Sec>
+    <Min>17</Min>
+    <Hours>12</Hours>
+    <X_Value>5,2213 m</X_Value>
+    <Y_Value>1,2064 m</Y_Value>
+    <Z_Value>-2,9369 m</Z_Value>
+    <Pan>-36,241 °</Pan>
+    <Tilt>0,117 °</Tilt>
+    <Roll>0,457 °</Roll>
+    <FovX>79,710 °</FovX>
+    <Aspect_Ratio>1,7818 </Aspect_Ratio>
+    <Focus>0,5400 </Focus>
+    <Zoom>0,0000 </Zoom>
+    <k1>0,000285000 mm^-2</k1>
+    <k2>0,000000050 mm^-4</k2>
+    <Center-X>0,0770 mm</Center-X>
+    <Center-Y>-0,0769 mm</Center-Y>
+    <PA_width>34,1990 mm</PA_width>
+  </Data_sample>
+  <Data_sample>
+    <Index>19</Index>
+    <Commands>2</Commands>
+    <Package_No>115</Package_No>
+    <Time>PT0.1801244S</Time>
+    <Frame>22</Frame>
+    <Sec>46</Sec>
+    <Min>17</Min>
+    <Hours>12</Hours>
+    <X_Value>5,2213 m</X_Value>
+    <Y_Value>1,2064 m</Y_Value>
+    <Z_Value>-2,9368 m</Z_Value>
+    <Pan>-36,240 °</Pan>
+    <Tilt>0,117 °</Tilt>
+    <Roll>0,456 °</Roll>
+    <FovX>79,710 °</FovX>
+    <Aspect_Ratio>1,7818 </Aspect_Ratio>
+    <Focus>0,5400 </Focus>
+    <Zoom>0,0000 </Zoom>
+    <k1>0,000285000 mm^-2</k1>
+    <k2>0,000000050 mm^-4</k2>
+    <Center-X>0,0770 mm</Center-X>
+    <Center-Y>-0,0769 mm</Center-Y>
+    <PA_width>34,1990 mm</PA_width>
+  </Data_sample>
+  <Data_sample>
+    <Index>20</Index>
+    <Commands>2</Commands>
+    <Package_No>116</Package_No>
+    <Time>PT0.1900476S</Time>
+    <Frame>23</Frame>
+    <Sec>46</Sec>
+    <Min>17</Min>
+    <Hours>12</Hours>
+    <X_Value>5,2213 m</X_Value>
+    <Y_Value>1,2064 m</Y_Value>
+    <Z_Value>-2,9368 m</Z_Value>
+    <Pan>-36,239 °</Pan>
+    <Tilt>0,118 °</Tilt>
+    <Roll>0,455 °</Roll>
+    <FovX>79,710 °</FovX>
+    <Aspect_Ratio>1,7818 </Aspect_Ratio>
+    <Focus>0,5400 </Focus>
+    <Zoom>0,0000 </Zoom>
+    <k1>0,000285000 mm^-2</k1>
+    <k2>0,000000050 mm^-4</k2>
+    <Center-X>0,0770 mm</Center-X>
+    <Center-Y>-0,0769 mm</Center-Y>
+    <PA_width>34,1990 mm</PA_width>
+  </Data_sample>
+</Stype_HF>

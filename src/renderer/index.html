@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STYPE → FBX Converter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>STYPE → FBX <span class="accent">UE5</span></h1>
+      <p class="subtitle">Camera Tracking XML to FBX Converter for Unreal Engine 5</p>
+    </header>
+
+    <div class="main-layout">
+      <!-- Left: Files -->
+      <section class="panel files-panel">
+        <h2>Input Files</h2>
+        <div id="drop-zone" class="drop-zone">
+          <div class="drop-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          </div>
+          <p>Drag & drop STYPE XML files here</p>
+          <p class="hint">or click to browse</p>
+          <input type="file" id="file-input" multiple accept=".xml" hidden>
+        </div>
+        <div id="file-list" class="file-list"></div>
+        <div class="file-actions">
+          <button id="btn-clear" class="btn btn-ghost" disabled>Clear All</button>
+          <span id="file-count" class="file-count">0 files</span>
+        </div>
+      </section>
+
+      <!-- Right: Settings -->
+      <section class="panel settings-panel">
+        <h2>Export Settings</h2>
+
+        <!-- Preset Toolbar -->
+        <div class="preset-toolbar">
+          <select id="preset-select" class="preset-select">
+            <option value="">— Select Preset —</option>
+          </select>
+          <button id="btn-preset-save" class="btn btn-sm" title="Save current settings as preset">Save</button>
+          <button id="btn-preset-delete" class="btn btn-sm btn-danger" title="Delete selected preset" style="display:none">Del</button>
+          <span class="preset-separator">|</span>
+          <button id="btn-preset-export" class="btn btn-sm" title="Export settings to JSON file">Export</button>
+          <button id="btn-preset-import" class="btn btn-sm" title="Import settings from JSON file">Import</button>
+        </div>
+
+        <!-- Camera Name -->
+        <div class="setting-group">
+          <h3>Camera</h3>
+          <div class="setting-row">
+            <label for="camera-name">Node Name</label>
+            <input type="text" id="camera-name" value="nDisplay_CAM" placeholder="nDisplay_CAM" class="wide-input">
+          </div>
+          <p class="field-hint">Must match your UE5 CineCameraActor name exactly</p>
+        </div>
+
+        <!-- Frame Rate -->
+        <div class="setting-group">
+          <h3>Frame Rate</h3>
+          <div class="setting-row">
+            <label for="output-fps">Output FPS</label>
+            <select id="output-fps">
+              <option value="source" selected>Same as source</option>
+              <option value="23.976">23.976</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="29.97">29.97</option>
+              <option value="30">30</option>
+              <option value="48">48</option>
+              <option value="50">50</option>
+              <option value="60">60</option>
+              <option value="100">100</option>
+              <option value="120">120</option>
+            </select>
+          </div>
+
+          <div id="fps-mode-group" class="setting-row" style="display:none">
+            <label>Mode</label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="fps-mode" value="drop" checked>
+                <span class="radio-text">Drop frames <span class="hint">(real-time)</span></span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="fps-mode" value="resample">
+                <span class="radio-text">Resample <span class="hint">(interpolated)</span></span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="fps-mode" value="slowmo">
+                <span class="radio-text">Slow motion <span class="hint">(1:1 mapping)</span></span>
+              </label>
+            </div>
+          </div>
+
+          <div id="drop-frame-opts" style="display:none">
+            <div class="setting-row">
+              <label for="drop-offset">Frame offset</label>
+              <input type="number" id="drop-offset" value="0" min="0" step="1">
+              <span class="hint" id="drop-info"></span>
+            </div>
+          </div>
+
+          <div id="fps-info" class="info-badge" style="display:none"></div>
+        </div>
+
+        <!-- Scale -->
+        <div class="setting-group">
+          <h3>Scale</h3>
+          <div class="setting-row">
+            <label for="scale">Factor</label>
+            <input type="number" id="scale" value="100" min="0.01" step="1">
+            <span class="hint">100 = meters → cm (UE5)</span>
+          </div>
+        </div>
+
+        <!-- Channels -->
+        <div class="setting-group">
+          <h3>Channels</h3>
+          <div class="channels-grid">
+            <label class="toggle-label">
+              <input type="checkbox" id="ch-translation" checked>
+              <span>Translation (X, Y, Z)</span>
+            </label>
+            <label class="toggle-label">
+              <input type="checkbox" id="ch-rotation" checked>
+              <span>Rotation (Pan, Tilt, Roll)</span>
+            </label>
+            <label class="toggle-label">
+              <input type="checkbox" id="ch-fov" checked>
+              <span>FOV → Focal Length</span>
+            </label>
+            <label class="toggle-label">
+              <input type="checkbox" id="ch-focus">
+              <span>Focus Distance</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Origin Transform -->
+        <div class="setting-group collapsible">
+          <h3 class="collapsible-header" data-target="origin-content">
+            Origin Transform
+            <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </h3>
+          <div id="origin-content" class="collapsible-body" style="display:none">
+            <h4 class="sub-heading">Translation</h4>
+            <p class="field-hint">Offset applied to the origin point (meters)</p>
+            <div class="axis-grid">
+              <div class="axis-row">
+                <label>X</label><input type="number" id="origin-tx" value="0" step="0.01">
+                <label>Y</label><input type="number" id="origin-ty" value="0" step="0.01">
+                <label>Z</label><input type="number" id="origin-tz" value="0" step="0.01">
+              </div>
+            </div>
+
+            <h4 class="sub-heading">Rotation</h4>
+            <p class="field-hint">Rotation of the entire coordinate system (degrees)</p>
+            <div class="axis-grid">
+              <div class="axis-row">
+                <label>X</label><input type="number" id="origin-rx" value="0" step="1">
+                <label>Y</label><input type="number" id="origin-ry" value="0" step="1">
+                <label>Z</label><input type="number" id="origin-rz" value="0" step="1">
+              </div>
+            </div>
+
+            <h4 class="sub-heading">Scale</h4>
+            <p class="field-hint">Per-axis scale (use -1 to mirror an axis)</p>
+            <div class="axis-grid">
+              <div class="axis-row">
+                <label>X</label><input type="number" id="origin-sx" value="1" step="0.1">
+                <label>Y</label><input type="number" id="origin-sy" value="1" step="0.1">
+                <label>Z</label><input type="number" id="origin-sz" value="1" step="0.1">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Axis Mapping -->
+        <div class="setting-group collapsible">
+          <h3 class="collapsible-header" data-target="axis-content">
+            Axis Mapping
+            <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </h3>
+          <div id="axis-content" class="collapsible-body" style="display:none">
+            <h4 class="sub-heading">Camera PreRotation</h4>
+            <p class="field-hint">Applied before Lcl Rotation. Default (0,0,0) matches STYPE reference.</p>
+            <div class="axis-grid">
+              <div class="axis-row">
+                <label>X</label><input type="number" id="prerot-x" value="0" step="1">
+                <label>Y</label><input type="number" id="prerot-y" value="0" step="1">
+                <label>Z</label><input type="number" id="prerot-z" value="90" step="1">
+              </div>
+            </div>
+
+            <h4 class="sub-heading">Position Mapping</h4>
+            <p class="field-hint">STYPE → FBX Y-up (UE5 auto-converts to Z-up on import)</p>
+            <div class="axis-grid">
+              <div class="axis-row">
+                <label>FBX X</label>
+                <select id="ax-x"><option value="x" selected>STYPE X</option><option value="y">STYPE Y</option><option value="z">STYPE Z</option></select>
+                <select id="ax-x-sign"><option value="1" selected>+</option><option value="-1">−</option></select>
+              </div>
+              <div class="axis-row">
+                <label>FBX Y</label>
+                <select id="ax-y"><option value="x">STYPE X</option><option value="y" selected>STYPE Y</option><option value="z">STYPE Z</option></select>
+                <select id="ax-y-sign"><option value="1" selected>+</option><option value="-1">−</option></select>
+              </div>
+              <div class="axis-row">
+                <label>FBX Z</label>
+                <select id="ax-z"><option value="x">STYPE X</option><option value="y">STYPE Y</option><option value="z" selected>STYPE Z</option></select>
+                <select id="ax-z-sign"><option value="1">+</option><option value="-1" selected>−</option></select>
+              </div>
+            </div>
+
+            <h4 class="sub-heading">Rotation Mapping</h4>
+            <div class="axis-grid">
+              <div class="axis-row">
+                <label>FBX Rot X</label>
+                <select id="rot-x"><option value="pan">Pan</option><option value="tilt" selected>Tilt</option><option value="roll">Roll</option></select>
+                <select id="rot-x-sign"><option value="1" selected>+</option><option value="-1">−</option></select>
+              </div>
+              <div class="axis-row">
+                <label>FBX Rot Y</label>
+                <select id="rot-y"><option value="pan" selected>Pan</option><option value="tilt">Tilt</option><option value="roll">Roll</option></select>
+                <select id="rot-y-sign"><option value="1" selected>+</option><option value="-1">−</option></select>
+              </div>
+              <div class="axis-row">
+                <label>FBX Rot Z</label>
+                <select id="rot-z"><option value="pan">Pan</option><option value="tilt">Tilt</option><option value="roll" selected>Roll</option></select>
+                <select id="rot-z-sign"><option value="1">+</option><option value="-1" selected>−</option></select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Output + Export -->
+    <section class="panel output-panel">
+      <div class="output-row">
+        <div class="output-path-group">
+          <label>Output</label>
+          <input type="text" id="output-path" readonly placeholder="Select output folder...">
+          <button id="btn-browse" class="btn btn-secondary">Browse…</button>
+        </div>
+        <button id="btn-export" class="btn btn-primary" disabled>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:4px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Export FBX
+        </button>
+      </div>
+      <div id="progress-area" class="progress-area" hidden>
+        <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
+        <div id="progress-text" class="progress-text">Ready</div>
+      </div>
+      <div id="log" class="log"></div>
+    </section>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

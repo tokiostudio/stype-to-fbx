@@ -1,0 +1,22 @@
+{
+  "name": "stype-to-fbx",
+  "version": "1.0.0",
+  "description": "Convert STYPE camera tracking XML to FBX for Unreal Engine 5",
+  "author": "Tokio Studio",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tokiostudio/stype-to-fbx.git"
+  },
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "cli": "node src/cli.js",
+    "test": "node scripts/test-convert.js",
+    "static-test": "node scripts/make-static-test.js"
+  },
+  "dependencies": {
+    "electron": "^33.0.0",
+    "fast-xml-parser": "^4.5.0"
+  }
+}
