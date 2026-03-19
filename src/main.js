@@ -22,7 +22,6 @@ if (process.platform === 'win32') {
     squirrelCommand === '--squirrel-uninstall' ||
     squirrelCommand === '--squirrel-obsolete'
   ) {
-    // Let electron-squirrel-startup handle shortcut creation/removal, then exit.
     require('electron-squirrel-startup');
     return;
   }
