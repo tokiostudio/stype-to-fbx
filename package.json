@@ -1,7 +1,7 @@
 {
   "name": "stype-to-fbx",
   "productName": "STYPE to FBX",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Convert STYPE camera tracking XML to FBX for Unreal Engine 5",
   "author": "Tokio Studio",
   "license": "MIT",

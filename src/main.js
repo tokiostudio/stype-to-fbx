@@ -191,12 +191,17 @@ ipcMain.handle('convert-to-fbx', async (_event, { filePath, outputDir, settings 
   try {
     const data = parseStypeXML(filePath);
     const baseName = path.basename(filePath, '.xml');
-    const outputPath = path.join(outputDir, baseName + '.fbx');
+    // Append first-frame timecode as _HH_MM_SS for easier identification.
+    const tcSuffix = data.timecodeStart
+      ? '_' + data.timecodeStart.split(':').slice(0, 3).join('_')
+      : '';
+    const outputFile = baseName + tcSuffix + '.fbx';
+    const outputPath = path.join(outputDir, outputFile);
     const result = generateFBX(data, outputPath, settings);
     return {
       success: true,
       outputPath,
-      outputFile: baseName + '.fbx',
+      outputFile,
       frameCount: result.frameCount,
       outputFps: result.outputFps,
     };
