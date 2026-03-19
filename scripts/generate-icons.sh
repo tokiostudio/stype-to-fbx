@@ -35,10 +35,34 @@ iconutil -c icns "$ICONSET" -o "$RESOURCES/icon.icns"
 rm -rf "$ICONSET"
 echo "  -> $RESOURCES/icon.icns"
 
-# --- Windows .ico ---
+# --- Windows .ico (multi-size, 32bpp RGBA via embedded PNGs) ---
 echo "Generating Windows .ico..."
-npx --yes png-to-ico "$SRC" > "$RESOURCES/icon.ico"
-echo "  -> $RESOURCES/icon.ico"
+node -e "
+const sharp = require('sharp');
+const fs = require('fs');
+const sizes = [16, 24, 32, 48, 64, 128, 256];
+const src = process.argv[1], out = process.argv[2];
+(async () => {
+  const bufs = [];
+  for (const s of sizes)
+    bufs.push({ s, d: await sharp(src).resize(s,s).png().toBuffer() });
+  const H = 6, E = 16, dirSz = E * bufs.length;
+  let off = H + dirSz;
+  const hdr = Buffer.alloc(H);
+  hdr.writeUInt16LE(0,0); hdr.writeUInt16LE(1,2); hdr.writeUInt16LE(bufs.length,4);
+  const dirs = [], imgs = [];
+  for (const {s,d} of bufs) {
+    const e = Buffer.alloc(E);
+    e.writeUInt8(s>=256?0:s,0); e.writeUInt8(s>=256?0:s,1);
+    e.writeUInt16LE(1,4); e.writeUInt16LE(32,6);
+    e.writeUInt32LE(d.length,8); e.writeUInt32LE(off,12);
+    dirs.push(e); imgs.push(d); off += d.length;
+  }
+  fs.writeFileSync(out, Buffer.concat([hdr,...dirs,...imgs]));
+  console.log('  -> ' + out + ' (' + bufs.length + ' sizes, 32bpp)');
+})();
+" "$SRC" "$RESOURCES/icon.ico"
+
 
 # --- Linux/general PNG ---
 echo "Copying PNG..."

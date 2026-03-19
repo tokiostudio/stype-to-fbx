@@ -4,8 +4,29 @@ const fs = require('fs');
 const { parseStypeXML } = require('./xml-parser');
 const { generateFBX } = require('./fbx-writer');
 
-// Handle Squirrel install/update/uninstall events on Windows
-if (process.platform === 'win32' && require('electron-squirrel-startup')) app.quit();
+// Tell Windows to associate our windows with the Squirrel shortcut's AppUserModelId.
+// Without this, the taskbar shows the stub exe's default Electron icon instead of ours.
+if (process.platform === 'win32') {
+  app.setAppUserModelId('com.squirrel.stype-to-fbx.stype-to-fbx');
+}
+
+// Handle Squirrel install/update/uninstall events on Windows.
+// We check process.argv directly instead of relying on the return value of
+// electron-squirrel-startup, because Vite's CJS bundling wraps the module
+// export in an object — making it always truthy and killing the app on every launch.
+if (process.platform === 'win32') {
+  const squirrelCommand = process.argv[1];
+  if (
+    squirrelCommand === '--squirrel-install' ||
+    squirrelCommand === '--squirrel-updated' ||
+    squirrelCommand === '--squirrel-uninstall' ||
+    squirrelCommand === '--squirrel-obsolete'
+  ) {
+    // Let electron-squirrel-startup handle shortcut creation/removal, then exit.
+    require('electron-squirrel-startup');
+    return;
+  }
+}
 
 let mainWindow;
 
@@ -65,6 +86,18 @@ function buildMenu() {
   Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 }
 
+function getAppIcon() {
+  const ext = process.platform === 'win32' ? 'icon.ico' : 'icon.png';
+  const candidates = [
+    path.join(process.resourcesPath, ext),          // production: extraResource copies here
+    path.join(__dirname, '..', 'resources', ext),   // dev: src/../resources/
+  ];
+  for (const p of candidates) {
+    if (fs.existsSync(p)) return p;
+  }
+  return undefined;
+}
+
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1100,
@@ -78,7 +111,7 @@ function createWindow() {
     },
     title: 'STYPE \u2192 FBX Converter (UE5)',
     backgroundColor: '#0c0c14',
-    icon: path.join(__dirname, '..', 'resources', 'icon.png'),
+    icon: getAppIcon(),
   });
 
   // Vite: use dev server in development, bundled files in production
