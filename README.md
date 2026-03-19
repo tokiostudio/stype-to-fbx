@@ -225,19 +225,46 @@ All artifacts go to `out/make/` (git-ignored).
 
 ### Creating a GitHub release
 
-After building:
+This is a multi-platform project. Releases are built on each platform separately and artifacts are uploaded incrementally. **Never delete a release to recreate it** — this destroys artifacts uploaded from other platforms. Use `gh release upload` to add or replace individual files.
+
+#### Step 1: Create the release (once, from any machine)
 
 ```bash
 VERSION=$(node -p "require('./package.json').version")
 
 gh release create "v${VERSION}" \
   --title "v${VERSION} — STYPE to FBX Converter" \
-  --generate-notes \
+  --generate-notes
+```
+
+#### Step 2: Upload macOS artifacts (from Mac)
+
+```bash
+VERSION=$(node -p "require('./package.json').version")
+
+gh release upload "v${VERSION}" \
   "out/make/STYPE to FBX-${VERSION}-arm64.dmg#STYPE.to.FBX-${VERSION}-macOS-arm64.dmg" \
   "out/make/zip/darwin/arm64/STYPE to FBX-darwin-arm64-${VERSION}.zip#STYPE.to.FBX-${VERSION}-macOS-arm64.zip"
 ```
 
-Add Windows artifacts from the Windows build machine in the same release via `gh release upload`.
+#### Step 3: Upload Windows artifacts (from Windows)
+
+```powershell
+$VERSION = node -p "require('./package.json').version"
+
+gh release upload "v$VERSION" `
+  "out\make\squirrel.windows\x64\STYPE to FBX-$VERSION Setup.exe#STYPE.to.FBX-$VERSION-Windows-x64-Setup.exe"
+```
+
+#### Replacing a single artifact
+
+To replace a file without touching the rest of the release:
+
+```bash
+gh release upload "v${VERSION}" --clobber "path/to/file#display-name"
+```
+
+> ⚠️ **Never use `gh release delete` on a multi-platform release.** It destroys all artifacts from every platform. If you need to fix something, use `--clobber` to replace individual files.
 
 ### Regenerating icons
 
